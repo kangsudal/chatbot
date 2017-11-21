@@ -2,9 +2,11 @@ import json
 import requests
 import time
 import urllib
+import os
+from dotenv import load_dotenv, find_dotenv
 
-TOKEN = "431227181:AAGELY379PMLp5svthGdQyijHQC-pSPQDPQ" #"453798067:AAECYzJwZYFdMggTKhHM9PfhbFixzCN4EJQ" kkakkungbot
-URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+load_dotenv(find_dotenv())
+URL = "https://api.telegram.org/bot{}/".format(os.environ.get("TOKEN"))
 
 
 def get_url(url):
@@ -62,7 +64,7 @@ def send_message(text, chat_id):
     text = urllib.parse.quote_plus(text)
     url = URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
     get_url(url)
-    
+
 '''
 def main():
     last_textchat = (None, None)
