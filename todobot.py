@@ -2,12 +2,15 @@ import json
 import requests
 import time
 import urllib
+import os
 from dbhelper import DBHelper
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 db = DBHelper()
 
-TOKEN = "431227181:AAGELY379PMLp5svthGdQyijHQC-pSPQDPQ" #"453798067:AAECYzJwZYFdMggTKhHM9PfhbFixzCN4EJQ" kkakkungbot
-URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+URL = "https://api.telegram.org/bot{}/".format(os.environ.get("TOKEN"))
 
 
 def get_url(url):
